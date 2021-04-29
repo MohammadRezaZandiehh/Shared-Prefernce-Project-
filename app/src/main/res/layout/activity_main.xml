@@ -74,6 +74,7 @@
             android:layout_gravity="end"/>
 
         <RadioGroup
+            android:id="@+id/radioGroup_main_gender"
             android:gravity="end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
