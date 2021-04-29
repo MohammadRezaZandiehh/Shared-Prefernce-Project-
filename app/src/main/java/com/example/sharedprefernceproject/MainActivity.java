@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         RadioGroup radioGroup = findViewById(R.id.radioGroup_main_gender);
         gender = userManager.getGender();
-        if (gender == "male"){
+        if (gender.equalsIgnoreCase("male")){
             radioGroup.check(R.id.radioBtn_main_male);
-        }else {
+        }else if(gender.equalsIgnoreCase("female")){
             radioGroup.check(R.id.radioBtn_main_female);
         }
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 if (checkedId == R.id.radioBtn_main_male) {
                     gender = "male";
                 } else {
-                    gender = "femal";
+                    gender = "female";
                 }
             }
         });

@@ -8,7 +8,16 @@ public class UserManager {
 
     public UserManager(Context context) {
         sharedPreferences = context.getSharedPreferences("user_information", Context.MODE_PRIVATE);
+
+        sharedPreferences.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+
+            }
+        });
     }
+
+
 
     public void savedUserInformation (String fullName,
                                       String email,
@@ -32,5 +41,18 @@ public class UserManager {
 
     public String getGender(){
         return sharedPreferences.getString("gender", "");
+    }
+
+
+    public void clearAllInformation(){
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+    }
+
+    public void removeFullName(){
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.remove("full_name");
+        editor.apply();
     }
 }
