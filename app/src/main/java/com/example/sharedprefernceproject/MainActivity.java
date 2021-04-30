@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         userManager = new UserManager(this);
+        // ...........read :
 
-        String fullName = userManager.getFullName();
         TextInputEditText fullNameET = findViewById(R.id.et_main_fullName);
-        fullNameET.setText(fullName);
+        fullNameET.setText(userManager.getFullName());
 
         TextInputEditText emailET = findViewById(R.id.et_main_email);
         emailET.setText(userManager.getEmail());
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         }else if(gender.equalsIgnoreCase("female")){
             radioGroup.check(R.id.radioBtn_main_female);
         }
+        //....................
 
         Button saveBTN = findViewById(R.id.btn_main_save);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //.........save:
         saveBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,5 +58,6 @@ public class MainActivity extends AppCompatActivity {
                         gender);
             }
         });
+        //..............
     }
 }
